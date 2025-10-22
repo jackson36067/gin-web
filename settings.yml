@@ -1,5 +1,8 @@
 # 配置文件
 system:
-  host: "127.0.0.1"
+  host: 127.0.0.1
   port: 8080
-
+  env: dev #生产环境
+log:
+  app: blog_server #生成日志服务,以及日志文件名称
+  dir: logs #生成日志文件地址信息

@@ -1,0 +1,7 @@
+.idea
+local_settings.yml
+tmp
+main
+logs/*
+uploads/*
+.gitignore
