@@ -4,8 +4,6 @@ import (
 	"blog_server/core"
 	"blog_server/flags"
 	"blog_server/global"
-
-	"github.com/sirupsen/logrus"
 )
 
 func main() {
@@ -15,9 +13,6 @@ func main() {
 	global.Conf = core.ReadConf()
 	// 配置logrus
 	core.InitLogrus()
-	//fmt.Println(core.Conf)
-	logrus.Warnf("xxx")
-	logrus.Infof("yyy")
-	logrus.Errorf("zzz")
-	logrus.Debug("ccc")
+	// 连接数据库
+	global.MysqlDB = core.InitMysql()
 }
