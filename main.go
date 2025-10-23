@@ -11,8 +11,10 @@ func main() {
 	flags.Parse()
 	// 读取配置文件
 	global.Conf = core.ReadConf()
-	// 配置logrus
+	// 配置Logrus
 	core.InitLogrus()
 	// 连接数据库
 	global.MysqlDB = core.InitMysql()
+	// 数据库迁移
+	flags.Run()
 }

@@ -1,7 +1,10 @@
 package flags
 
 // 用于解析命令行参数
-import "flag"
+import (
+	"flag"
+	"os"
+)
 
 // Options 定义命令行可选参数结构体
 type Options struct {
@@ -19,4 +22,12 @@ func Parse() {
 	flag.BoolVar(&FlagOptions.DB, "db", false, "数据库迁移")
 	flag.BoolVar(&FlagOptions.Version, "v", false, "版本")
 	flag.Parse()
+}
+
+// Run 数据库迁移
+func Run() {
+	if FlagOptions.DB {
+		MigrateDB()
+		os.Exit(0)
+	}
 }

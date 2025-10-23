@@ -17,7 +17,11 @@ func InitMysql() (db *gorm.DB) {
 	db, err := gorm.Open(mysql.Open(dsn.DSN()), &gorm.Config{
 		DisableForeignKeyConstraintWhenMigrating: true,
 		NamingStrategy: schema.NamingStrategy{
+			// 生成表的时候表明不带上复数
 			SingularTable: true,
+			// 字段名小写+下划线
+			NameReplacer: nil,
+			NoLowerCase:  false,
 		},
 	})
 	if err != nil {
